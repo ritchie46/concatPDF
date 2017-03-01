@@ -11,11 +11,10 @@ def strtof(text):
     :param text: (str) String chunk
     :return: (list) ["foo, 12.1, "bar", 3.0]
     """
-    if text != '':
-        try:
-            return float(text) if text[0].isnumeric() else text
-        except ValueError:
-            return text
+    try:
+        return float(text) if text[0].isnumeric() else text
+    except ValueError:
+        return text
 
 
 def natural_keys(text):
@@ -26,7 +25,7 @@ def natural_keys(text):
     :param (str)
     :return (list) With parameters to sort by.
     """
-    return [strtof(c) for c in re.split('(\d.\d+|\d+)', text)]
+    return [strtof(c) for c in re.split('(^_\d+.\d+|\d+)', text) if c != '']
 
 
 class Build:
