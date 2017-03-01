@@ -8,13 +8,14 @@ File names must start with a number, or an exception is thrown.
 
 Valid names are:
 
-* 1_mypdf.pdf
+* 1_my_nr_1pdf.pdf
 * 4.pdf
-* 3.13_thethird.PDF
+* 3.13_the_third.PDF
+* 1.1-i-will-be-second.pdf
 
 ## Concatenation order
 
-Leading in determining the concatenation order is the config.ini file.
+Leading in determining the concatenation order is the `config.ini` file.
 
 Example config.ini
 ```
@@ -31,9 +32,9 @@ Example config.ini
     filename = output
 ```
 
-1. The configuration file above will first concatenate all pdf files matching the '1' glob in the 'source/' directory.
-2. Secondly all files in the 'source/appendix/' directory are appended to the pdf.
-3. And finally the remaining files in the 'source/' directory are added.
+1. The configuration file above will first concatenate all pdf files matching the '1' glob in the `source/` directory.
+2. Secondly all files in the `source/appendix/` directory are appended to the pdf.
+3. And finally the remaining files in the `source/` directory are added.
 
 ## Initialise a project
 
@@ -52,7 +53,7 @@ Following is an example of how you could initialise a project. Run from the proj
     init(order=order)
 ```
 
-To start the build run `make.py` from your projects root.
+To start the build run `make.py` from your projects root directory.
 
 ## Installation
 
