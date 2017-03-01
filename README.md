@@ -38,24 +38,15 @@ Example config.ini
 
 Note that only pdf files will be added. So `*` can be safely used.
 
+## Installation
+
+`$ pip3 install concatPDF`
+
 ## Initialise a project
 
-Following is an example of how you could initialise a project. Run from the project root directory:
+Go to you project directory and run:
 
-```python
-    from concatPDF import init
-
-    order = {
-        "1": "report/*",
-        "2": "calculations/*",
-        "3": "*"
-    }
-
-    init(order=order)
-```
+`$ concatPDF-init` or `$ concatPDF-init -h`
 
 To start the build run `make.py` from your projects root directory.
 
-## Installation
-
-`$ pip install concatPDF`

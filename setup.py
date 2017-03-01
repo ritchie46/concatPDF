@@ -5,8 +5,11 @@ setup(
     version="0.1.0",
     author="Ritchie Vink",
     license='MIT License',
+    entry_points = {
+        'console_scripts': ['concatPDF-init=concatPDF.quickstart:run'],
+    },
     packages=["concatPDF", "concatPDF/res"],
     install_requires=[
-        "PyPDF2==1.26.0"
+        "PyPDF2>=1.26.0"
     ]
 )

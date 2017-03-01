@@ -1,9 +1,10 @@
 import os
 import configparser
 import pkg_resources
+import argparse
 
 
-def init(source="./source", build="./build", order=None, out_name="output"):
+def init(source="./source", build="./build", out_name="output", order=None):
     try:
         os.mkdir(build)
     except FileExistsError:
@@ -41,5 +42,18 @@ def init(source="./source", build="./build", order=None, out_name="output"):
     with open("./make.py", 'wb') as f:
         f.write(s)
 
+
+def run():
+    p = argparse.ArgumentParser()
+    p.add_argument("--build", help="set build directory - standard: './build'")
+    p.add_argument("--source", help="set source directory - standard: './source'")
+    p.add_argument("--output", help="name of the output file - standard: 'output'")
+    args = p.parse_args()
+
+    build = args.build if args.build else "./build"
+    source = args.source if args.source else "./source"
+    output = args.output if args.output else "output"
+    init(source, build, output)
+
 if __name__ == "__main__":
-    init()
+    run()
