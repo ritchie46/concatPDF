@@ -68,6 +68,10 @@ class Build:
         self.paths = files
 
     def concat(self, name):
+        """
+        Concatenate the pdf files found in _def_path_order().
+        :param name: (str) Output file name.
+        """
         merge = PdfFileMerger()
         for f in self.paths:
             with open(f, 'rb') as f:
@@ -76,6 +80,9 @@ class Build:
         merge.write(os.path.join(self.build_dir, "%s.pdf" % name))
 
     def build(self):
+        """
+        Build the out pdf.
+        """
         self._def_path_order()
         self.concat(self.output_name)
 

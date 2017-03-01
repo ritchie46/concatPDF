@@ -44,5 +44,8 @@ Thumbs.db
 *.PNG
 *.pdf
 /__pycache__
+*__pycache__
 *.pyc
 *.egg*
+*concatPDF-*
+*/dist

@@ -1,11 +1,11 @@
 from setuptools import setup
 
 setup(
-    name="concat-pdf",
-    version=0.1,
+    name="concatPDF",
+    version="0.1.0",
     author="Ritchie Vink",
     license='MIT License',
-    packages=["concatPDF"],
+    packages=["concatPDF", "concatPDF/res"],
     install_requires=[
         "PyPDF2==1.26.0"
     ]
