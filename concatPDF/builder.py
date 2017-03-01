@@ -4,6 +4,7 @@ import os
 import glob
 import re
 
+
 def strtof(text):
     """
     Convect string to float.
@@ -80,9 +81,3 @@ class Build:
 
 
 
-
-# merge = PdfFileMerger()
-
-a = Build()
-a._def_path_order()
-a.concat()
