@@ -1,8 +1,8 @@
 import os
-import pkg_resources
+import configparser
 
 
-def init(source="./source", build="./build"):
+def init(source="./source", build="./build", order=None):
     try:
         os.mkdir(build)
     except FileExistsError:
@@ -12,20 +12,22 @@ def init(source="./source", build="./build"):
     except FileExistsError:
         pass
 
-
-    _replace = {
-        b"{1}": bytes(build, "utf-8"),
-        b"{2}": bytes(source, "utf-8")
+    config = configparser.ConfigParser()
+    config["DIR"] = {
+        "build": build,
+        "source": source
     }
 
-    res_pkg = __name__
-    res_path = "/".join(("res", "config.ini"))
-    s = pkg_resources.resource_string(res_pkg, res_path)
-    for i, j in _replace.items():
-        s = s.replace(i, j)
+    if order is None:
+        order = {
+        "1": "*",
+        "2": "content/*"
+    }
 
-    with open("./config.ini", 'wb') as f:
-        f.write(s)
+    config["ORDER"] = order
+
+    with open("./config.ini", 'w') as f:
+        config.write(f)
 
 if __name__ == "__main__":
     init()
