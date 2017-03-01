@@ -36,6 +36,7 @@ class Build:
         self.source_dir = self.config["DIR"]["SOURCE"]
         self.build_dir = self.config["DIR"]["BUILD"]
         self.order = dict(self.config["ORDER"])
+        self.output_name = self.config["OUTPUT"]["FILENAME"]
         self.paths = None
 
     def _def_path_order(self):
@@ -74,9 +75,9 @@ class Build:
 
         merge.write(os.path.join(self.build_dir, "%s.pdf" % name))
 
-    def build(self, name="output"):
+    def build(self):
         self._def_path_order()
-        self.concat(name)
+        self.concat(self.output_name)
 
 
 
