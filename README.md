@@ -32,7 +32,7 @@ Example config.ini
     filename = output
 ```
 
-1. The configuration file above will first concatenate all pdf files matching the '18' glob in the `source/` directory.
+1. The configuration file above will first concatenate all pdf files matching the '1' glob in the `source/` directory.
 2. Secondly all files in the `source/appendix/` directory are appended to the pdf.
 3. And finally the remaining files in the `source/` directory are added.
 
