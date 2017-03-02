@@ -8,7 +8,7 @@ File names must start with a number, or an exception is thrown.
 
 Valid names are:
 
-* 1_my_nr_1pdf.pdf
+* 1.0_my_nr_1pdf.pdf
 * 4.pdf
 * 3.13_the_third.PDF
 * 1.1-i-will-be-second.pdf
@@ -40,13 +40,13 @@ Note that only pdf files will be added. So `*` can be safely used.
 
 ## Installation
 
-`$ pip3 install concatPDF`
+`$ pip3 install git+https://github.com/ritchie46/concatPDF.git`
 
 ## Initialise a project
 
 Go to you project directory and run:
 
-`$ concatPDF-init` or `$ concatPDF-init -h`
+`$ concatPDF`
 
 To start the build run `make.py` from your projects root directory.
 

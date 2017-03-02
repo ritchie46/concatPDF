@@ -6,7 +6,7 @@ setup(
     author="Ritchie Vink",
     license='MIT License',
     entry_points={
-        'console_scripts': ['concatPDF-init=concatPDF.quickstart:run'],
+        'console_scripts': ['concatPDF=concatPDF.quickstart:run'],
     },
     packages=["concatPDF", "concatPDF/res"],
     install_requires=[
