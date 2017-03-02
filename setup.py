@@ -2,10 +2,10 @@ from setuptools import setup
 
 setup(
     name="concatPDF",
-    version="0.1.0",
+    version="0.1.1",
     author="Ritchie Vink",
     license='MIT License',
-    entry_points = {
+    entry_points={
         'console_scripts': ['concatPDF-init=concatPDF.quickstart:run'],
     },
     packages=["concatPDF", "concatPDF/res"],

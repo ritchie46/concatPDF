@@ -3,6 +3,7 @@ import configparser
 import os
 import glob
 import re
+import string
 
 
 def strtof(text):
@@ -48,7 +49,8 @@ class Build:
             # Get the file names.
             ordered_fnames = []
             for f in fs_us:
-                ordered_fnames.append(os.path.basename(f))
+                if f[0] in string.digits:
+                    ordered_fnames.append(os.path.basename(f))
 
             # Sort the file names
             ordered_fnames.sort(key=natural_keys)
