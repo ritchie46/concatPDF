@@ -1,5 +1,7 @@
 # concatPDF
 
+[![Build Status](https://travis-ci.org/ritchie46/concatPDF.svg?branch=master)](https://travis-ci.org/ritchie46/concatPDF)
+
 Simply concat PDF files based on their file names and configuration file.
 
 The order is first based on the globbing in the config.ini file and second on the numerical order of the file names.
