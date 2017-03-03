@@ -49,3 +49,5 @@ Thumbs.db
 *.egg*
 *concatPDF-*
 */dist
+build/
+dist/

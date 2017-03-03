@@ -40,7 +40,7 @@ Note that only pdf files will be added. So `*` can be safely used.
 
 ## Installation
 
-`$ pip3 install git+https://github.com/ritchie46/concatPDF.git`
+`$ pip install git+https://github.com/ritchie46/concatPDF.git`
 
 ## Initialise a project
 

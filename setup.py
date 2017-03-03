@@ -1,4 +1,8 @@
 from setuptools import setup
+import sys
+
+if sys.version_info[0] != 3:
+    sys.exit('Sorry, Python 2 is not supported')
 
 setup(
     name="concatPDF",

@@ -101,7 +101,7 @@ class Build:
         """
         merge = PdfFileMerger()
         n = len(self.paths)
-        c = 0
+        c = 1
         for f in self.paths:
             progress_bar(c / n * 100)
             with open(f, 'rb') as f:
