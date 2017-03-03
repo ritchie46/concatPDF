@@ -23,7 +23,7 @@ def init(source="./source", build="./build", out_name="output", order=None):
     if order is None:
         order = {
         "1": "*",
-        "2": "content/*"
+        "2": "appendix/*"
     }
 
     config["ORDER"] = order
@@ -53,6 +53,9 @@ def run():
     build = args.build if args.build else "./build"
     source = args.source if args.source else "./source"
     output = args.output if args.output else "output"
+    print("Preparing the build directories.\n\nThe build directory will be set to %s." % build,
+          "\nThe source directory will be set to %s." % source,
+          "\nThe output file will be merged as %s.pdf." % output)
     init(source, build, output)
 
 if __name__ == "__main__":

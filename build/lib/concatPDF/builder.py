@@ -120,7 +120,6 @@ class Build:
         else:
             print("\nBuilding pdf file in {0}/{1}.pdf".format(self.build_dir, self.output_name))
             self.concat(self.output_name)
-            print("\nFinished.")
 
 
 
