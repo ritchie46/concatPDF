@@ -6,12 +6,12 @@ import re
 import string
 
 
-def strtof(text):
+def str_to_flt(text):
     """
     Convect string to float.
 
     :param text: (str) String chunk
-    :return: (list) ["foo, 12.1, "bar", 3.0]
+    :return: (float) or original input string.
     """
     try:
         return float(text) if text[0].isnumeric() else text
@@ -27,7 +27,7 @@ def natural_keys(text):
     :param (str)
     :return (list) With parameters to sort by.
     """
-    return [strtof(c) for c in re.split('(^_\d+.\d+|\d+)', text) if c != '']
+    return [str_to_flt(c) for c in re.split('([\d+.\d]+|\d+)', text) if c != '']
 
 
 def progress_bar(progress):
