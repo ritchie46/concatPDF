@@ -10,6 +10,11 @@ class TestFileOrder(unittest.TestCase):
         self.assertEqual(natural_keys("1_1_you"), [1, '_', 1, "_you"])
         self.assertEqual(natural_keys("_1.1_1foo2"), ['_', 1.1, '_', 1.0, 'foo', 2.0])
 
+    def test_file_order(self):
+        b = Build("./test/source/config.ini")
+        self.assertEqual(b._def_path_order(".txt"), ['./test/source/1_file.txt', './test/source/1.3-file.txt',
+                                                     './test/source/1.3_file.txt'])
+
 
 if __name__ == "__main__":
     unittest.main()

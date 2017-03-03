@@ -4,7 +4,7 @@ Simply concat PDF files based on their file names and configuration file.
 
 The order is first based on the globbing in the config.ini file and second on the numerical order of the file names.
 
-File names must start with a number, or an exception is thrown.
+File names not starting with a number are ignored.
 
 Valid names are:
 

@@ -70,9 +70,7 @@ class Build:
             for f_path in paths_us:
                 f = os.path.basename(f_path)
                 # Files not starting with a digit are ignored.
-                print(f)
                 if f[0] in string.digits:
-                    print("yes")
                     ordered_fnames.append(f)
 
             # Sort the file names
@@ -91,7 +89,7 @@ class Build:
                 if file_path not in files:
                     files.append(file_path)
 
-        self.paths = files
+        return files
 
     def concat(self, name):
         """
@@ -114,7 +112,7 @@ class Build:
         Build the out pdf.
         """
 
-        self._def_path_order()
+        self.paths = self._def_path_order()
         if len(self.paths) == 0:
             print("\nNo pdf files found that meet the requirements. Have you numbered them?")
         else:
