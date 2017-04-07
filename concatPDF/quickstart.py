@@ -60,7 +60,7 @@ def split(fp):
             print("Processing page {} of {}".format(i + 1, pdf.numPages))
             out = PdfFileWriter()
             out.addPage(pdf.getPage(i))
-            with open("{}_{}.pdf".format(fp[:-4], i + 1), "wb") as f:
+            with open("{}/{}._{}.pdf".format(os.path.dirname(fp), i + 1, os.path.basename(fp)[:-4]), "wb") as f:
                 out.write(f)
         print("Finished")
 

@@ -12,7 +12,7 @@ except(IOError, ImportError):
 
 setup(
     name="concatPDF",
-    version="0.1.2",
+    version="0.1.3",
     author="Ritchie Vink",
     license='MIT License',
     url="https://ritchievink.com",
