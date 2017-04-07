@@ -2,6 +2,7 @@ import os
 import configparser
 import pkg_resources
 import argparse
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
 def init(source="./source", build="./build", out_name="output", order=None):
@@ -43,20 +44,45 @@ def init(source="./source", build="./build", out_name="output", order=None):
         f.write(s)
 
 
+def split(fp):
+    """
+    Split PDF in one pagers.
+
+    :param fp: (str) Path to PDF file to split.
+    :return:
+    """
+
+    print("Splitting {} into multiple PDF files.".format(fp))
+    with open(fp, "rb") as f:
+        pdf = PdfFileReader(f)
+
+        for i in range(pdf.numPages):
+            print("Processing page {} of {}".format(i + 1, pdf.numPages))
+            out = PdfFileWriter()
+            out.addPage(pdf.getPage(i))
+            with open("{}_{}.pdf".format(fp[:-4], i + 1), "wb") as f:
+                out.write(f)
+        print("Finished")
+
+
 def run():
     p = argparse.ArgumentParser()
     p.add_argument("--build", help="set build directory - standard: './build'")
     p.add_argument("--source", help="set source directory - standard: './source'")
     p.add_argument("--output", help="name of the output file - standard: 'output'")
+    p.add_argument("--split", help="split file in one pagers")
     args = p.parse_args()
 
-    build = args.build if args.build else "./build"
-    source = args.source if args.source else "./source"
-    output = args.output if args.output else "output"
-    print("Preparing the build directories.\n\nThe build directory will be set to %s." % build,
-          "\nThe source directory will be set to %s." % source,
-          "\nThe output file will be merged as %s.pdf." % output)
-    init(source, build, output)
+    if args.split:
+        split(args.split)
+    else:
+        build = args.build if args.build else "./build"
+        source = args.source if args.source else "./source"
+        output = args.output if args.output else "./output"
+        print("Preparing the build directories.\n\nThe build directory will be set to %s." % build,
+              "\nThe source directory will be set to %s." % source,
+              "\nThe output file will be merged as %s.pdf." % output)
+        init(source, build, output)
 
 if __name__ == "__main__":
     run()
