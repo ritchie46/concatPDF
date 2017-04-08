@@ -39,7 +39,7 @@ def progress_bar(progress):
     :param progress: (float) Percentage.
     """
     n = int(progress / 10)
-    print('\r[{0}{1}] {:d}%'.format('#' * n, '_' * (10 - n), progress), end='')
+    print('\r[{}{}] {:d}%'.format('#' * n, '_' * (10 - n), progress), end='')
 
 
 class Build:
